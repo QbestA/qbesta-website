@@ -1,0 +1,7 @@
+<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+  <path id="textCurve" d="M10,150 Q250,50 450,150" fill="transparent" />
+
+  <text font-family="Arial Yellow, sans-serif" font-size="120" font-weight="900" fill="#f2b602">
+    <textPath href="#textCurve" startOffset="0%" text-anchor="transparent">QbestA</textPath>
+  </text>
+</svg>
