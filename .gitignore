@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Original full-size Pexels source images.
+# Web-optimised versions (hero.jpg, band-*.jpg) are committed instead.
+images/pexels-*.jpg

@@ -1,0 +1,498 @@
+/*!
+ * QbestA - dark theme overrides
+ * Layered on top of Start Bootstrap "Agency" (css/styles.css).
+ * Keep all custom rules here so the vendored Bootstrap stays untouched.
+ */
+
+:root {
+  --q-bg: #0b0e11;          /* near-black page background */
+  --q-bg-alt: #11161c;      /* alternating section background */
+  --q-card: #181f27;        /* card / panel background */
+  --q-card-hover: #1e2730;
+  --q-border: rgba(255, 255, 255, 0.09);
+  --q-gold: #ffc800;
+  --q-gold-soft: rgba(255, 200, 0, 0.14);
+  --q-text: #e8ebef;
+  --q-muted: #9aa4b1;
+  --q-heading: #ffffff;
+}
+
+/* ---------- Base ---------- */
+body {
+  background-color: var(--q-bg);
+  color: var(--q-text);
+}
+
+.page-section {
+  background-color: var(--q-bg);
+}
+.page-section.qb-alt {
+  background-color: var(--q-bg-alt);
+}
+
+.section-heading {
+  color: var(--q-heading);
+}
+.page-section h3.section-subheading,
+.page-section .section-subheading.h3 {
+  color: var(--q-muted);
+}
+
+/* The vendored theme uses .text-muted everywhere for body copy. Lift it for dark bg. */
+.page-section .text-muted,
+.qb-band .text-muted,
+footer .text-muted {
+  color: var(--q-muted) !important;
+}
+
+.divider {
+  border-top: 0.2rem solid var(--q-gold);
+  width: 3.25rem;
+  opacity: 1;
+  margin: 1.25rem auto 2rem;
+}
+.divider.divider-start {
+  margin-left: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  --bs-btn-color: #161616;
+  --bs-btn-bg: var(--q-gold);
+  --bs-btn-border-color: var(--q-gold);
+  --bs-btn-hover-color: #161616;
+  --bs-btn-hover-bg: #ffd633;
+  --bs-btn-hover-border-color: #ffd633;
+  --bs-btn-active-bg: #e6b400;
+  --bs-btn-active-border-color: #e6b400;
+  --bs-btn-active-color: #161616;
+  font-weight: 700;
+}
+.btn-outline-light {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: rgba(255, 255, 255, 0.5);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-color: #161616;
+}
+
+/* ---------- Navbar ---------- */
+#mainNav .btn-primary {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Hero ---------- */
+.qb-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  /* Clear the fixed navbar so centred content never sits underneath it */
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  background: #05070a url("../images/hero.jpg") center center / cover no-repeat;
+}
+.qb-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 7, 10, 0.72) 0%, rgba(5, 7, 10, 0.82) 100%);
+}
+.qb-hero .container {
+  position: relative;
+  z-index: 2;
+}
+.qb-hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.qb-hero .lead {
+  color: #dfe3e8;
+  font-size: 1.2rem;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+.qb-hero .qb-eyebrow {
+  color: var(--q-gold);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+.qb-trust-strip {
+  margin-top: 2.25rem;
+  color: #c2c9d2;
+  font-size: 0.95rem;
+}
+.qb-trust-strip span {
+  white-space: nowrap;
+}
+.qb-trust-strip i {
+  color: var(--q-gold);
+  margin-right: 0.4rem;
+}
+@media (min-width: 768px) {
+  .qb-hero h1 {
+    font-size: 4rem;
+  }
+  .qb-hero .lead {
+    font-size: 1.4rem;
+  }
+}
+/* On small screens the hero content is taller than the viewport, so don't force
+   100vh vertical centring (it would push the headline above the fold). Flow from top. */
+@media (max-width: 767.98px) {
+  .qb-hero {
+    min-height: 0;
+    padding-top: 7rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* ---------- Pain / promise strip ---------- */
+.qb-pain {
+  background: var(--q-gold);
+  color: #161616;
+  text-align: center;
+  padding: 2.25rem 0;
+}
+.qb-pain p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.qb-pain .qb-pain-sub {
+  font-weight: 400;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 0.35rem;
+}
+
+/* ---------- Service cards ---------- */
+.qb-card {
+  height: 100%;
+  background: var(--q-card);
+  border: 1px solid var(--q-border);
+  border-radius: 0.75rem;
+  padding: 2rem 1.75rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.qb-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--q-gold);
+  background: var(--q-card-hover);
+}
+.qb-card h4 {
+  color: var(--q-heading);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.qb-card p {
+  color: var(--q-muted);
+  margin-bottom: 0;
+  font-size: 0.98rem;
+}
+.qb-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.6rem;
+  background: var(--q-gold-soft);
+  color: var(--q-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Full-bleed image bands (agentic explainer, final CTA) ---------- */
+.qb-band {
+  position: relative;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.qb-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 9, 13, 0.84);
+}
+.qb-band .container {
+  position: relative;
+  z-index: 2;
+}
+.qb-band--agentic {
+  background-image: url("../images/band-agentic.jpg");
+}
+.qb-band--cta {
+  background-image: url("../images/band-cta.jpg");
+}
+
+/* Agentic comparison columns */
+.qb-compare {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--q-border);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  height: 100%;
+}
+.qb-compare.is-primary {
+  border-color: var(--q-gold);
+  background: var(--q-gold-soft);
+}
+.qb-compare h4 {
+  color: #fff;
+  font-size: 1.15rem;
+}
+.qb-compare .qb-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+}
+.qb-compare .qb-tag.bot {
+  background: rgba(255, 255, 255, 0.12);
+  color: #cfd5dd;
+}
+.qb-compare .qb-tag.agent {
+  background: var(--q-gold);
+  color: #161616;
+}
+.qb-compare ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #cfd5dd;
+}
+.qb-compare ul li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Industries ---------- */
+.qb-industry {
+  height: 100%;
+  background: var(--q-card);
+  border: 1px solid var(--q-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.qb-industry i {
+  color: var(--q-gold);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.qb-industry h5 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+.qb-industry p {
+  color: var(--q-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ---------- How we work (process) ---------- */
+.qb-step {
+  height: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+.qb-step .qb-step-num {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--q-gold);
+  color: #161616;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qb-step h5 {
+  color: #fff;
+  font-size: 1.05rem;
+}
+.qb-step p {
+  color: var(--q-muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Why QbestA lists ---------- */
+.qb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.qb-list li {
+  position: relative;
+  padding-left: 1.9rem;
+  margin-bottom: 0.85rem;
+  color: var(--q-text);
+}
+.qb-list li::before {
+  content: "\f00c"; /* check */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  color: var(--q-gold);
+  font-size: 0.9rem;
+}
+.qb-subhead {
+  color: var(--q-gold);
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.05rem;
+}
+
+/* ---------- Tech stack logos ---------- */
+.qb-tech {
+  text-align: center;
+}
+.qb-tech .qb-tech-label {
+  color: var(--q-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.qb-tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cfd5dd;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.5rem 0.25rem;
+}
+.qb-tech-item i {
+  color: var(--q-gold);
+  font-size: 1.3rem;
+}
+
+/* ---------- Testimonials (placeholders) ---------- */
+.qb-quote {
+  height: 100%;
+  background: var(--q-card);
+  border: 1px solid var(--q-border);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+}
+.qb-quote .qb-stars {
+  color: var(--q-gold);
+  margin-bottom: 0.75rem;
+}
+.qb-quote p {
+  color: var(--q-text);
+  font-style: italic;
+}
+.qb-quote .qb-quote-author {
+  color: var(--q-muted);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.qb-placeholder-note {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #161616;
+  background: var(--q-gold);
+  border-radius: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- FAQ accordion (dark) ---------- */
+#faq .accordion {
+  --bs-accordion-bg: var(--q-card);
+  --bs-accordion-color: var(--q-text);
+  --bs-accordion-border-color: var(--q-border);
+  --bs-accordion-btn-color: #fff;
+  --bs-accordion-btn-bg: var(--q-card);
+  --bs-accordion-active-color: var(--q-gold);
+  --bs-accordion-active-bg: var(--q-card);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem var(--q-gold-soft);
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='%239aa4b1' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='%23ffc800' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+}
+#faq .accordion-item {
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+#faq .accordion-button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+#faq .accordion-body {
+  color: var(--q-muted);
+}
+
+/* ---------- Contact ---------- */
+section#contact {
+  background-color: var(--q-bg-alt);
+  background-image: none;
+}
+section#contact .form-control {
+  background-color: #0c1116;
+  border-color: var(--q-border);
+  color: #fff;
+}
+section#contact .form-control:focus {
+  background-color: #0c1116;
+  color: #fff;
+}
+.qb-calendly-note {
+  border: 1px dashed var(--q-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: var(--q-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background-color: #07090c;
+  color: var(--q-muted);
+  border-top: 1px solid var(--q-border);
+}
+.footer a.link-dark {
+  color: var(--q-muted) !important;
+}
+.footer a.link-dark:hover {
+  color: var(--q-gold) !important;
+}
+.footer .btn-social {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.footer .btn-social:hover {
+  background: var(--q-gold);
+  color: #161616;
+}
