@@ -23,7 +23,7 @@ Hosted on **GitHub Pages** (free, push-to-`main` deploys), custom domain **www.q
 - [x] 5-step "How we work" process + "no value, no fee" line
 - [x] Why Qbesta / what-sets-us-apart lists
 - [x] "Technologies we work with" logos (replaced misleading fake client logos)
-- [x] Testimonials section — **placeholder content** (clearly marked)
+- [x] Testimonials section built — **currently hidden** (placeholder content; re-enable when real quotes exist)
 - [x] FAQ accordion (cost, timeline, data/privacy, "do we need AI?", vendor lock-in)
 - [x] Final CTA band + restyled discovery-call contact form (Formspree, unchanged endpoint)
 - [x] Footer with legal entity + ABN 63460852097
@@ -46,7 +46,7 @@ These need **owner input** (IDs, links, settings) — placeholders are already i
 
 ## 📋 Backlog — content & polish
 
-- [ ] **Replace testimonial placeholders** with real client quotes (name, business, city) once available.
+- [ ] **Testimonials** — the "What clients say" section is currently **hidden** (`hidden` attribute on `#testimonials`). Add real client quotes (name, business, city), replace the placeholder cards, then remove `hidden` to re-enable.
 - [ ] **Case studies / results** — add 1–3 short before/after outcomes with numbers (strong on competitor sites).
 - [ ] **Pricing / engagement model** — optional section or FAQ expansion (transparent ranges build trust).
 - [ ] **Privacy Policy & Terms pages** — add real pages and link from footer (dead links were removed).
